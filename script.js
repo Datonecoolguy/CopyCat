@@ -1,48 +1,33 @@
 function showFormPage() {
   document.getElementById('landing').style.display = 'none';
   document.getElementById('formPage').classList.add('active');
-  document.getElementById('thankYouMessage').style.display = 'none';
 }
 
-function showTextForm() {
-  hideAllForms();
-  document.getElementById('textForm').style.display = 'block';
-}
-
-function showImageForm() {
-  hideAllForms();
-  document.getElementById('imageForm').style.display = 'block';
-}
-
-function showVideoForm() {
-  hideAllForms();
-  document.getElementById('videoForm').style.display = 'block';
-}
-
-function hideAllForms() {
-  document.getElementById('textForm').style.display = 'none';
-  document.getElementById('imageForm').style.display = 'none';
-  document.getElementById('videoForm').style.display = 'none';
-}
-
-function handleSubmit(event, type) {
+function handleSubmit(event) {
   event.preventDefault();
-
-  // Sembunyikan semua form & tombol
-  hideAllForms();
-  document.querySelector('.cta').style.display = 'none';
-
-  // Tampilkan ucapan terima kasih
+  document.querySelector('form').style.display = 'none';
   document.getElementById('thankYouMessage').style.display = 'block';
-
-  console.log(`${type} form submitted.`);
-
-  // Balik ke landing page setelah 3 detik
+  
+  // Simpan data ke localStorage
+  localStorage.setItem('formData', JSON.stringify({
+    title: document.getElementById('title').value,
+    description: document.getElementById('desc').value,
+    author: document.getElementById('author').value
+  }));
+  
+  // Tampilkan opsi
   setTimeout(() => {
-    document.getElementById('formPage').classList.remove('active');
-    document.getElementById('landing').style.display = 'block';
+    document.getElementById('thankYouMessage').style.display = 'none';
+    document.getElementById('optionPage').classList.add('active');
+  }, 3000); // Setelah 3 detik
+}
 
-    // Reset tombol form biar bisa dipakai lagi
-    document.querySelector('.cta').style.display = 'block';
+function saveOption(option) {
+  // Simpan pilihan ke localStorage
+  localStorage.setItem('option', option);
+
+  // Kembali ke landing page setelah 3 detik
+  setTimeout(() => {
+    window.location.reload();
   }, 3000);
 }
