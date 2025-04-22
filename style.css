@@ -1,121 +1,95 @@
-* {
-  box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
-}
 body {
   font-family: 'Inter', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #111;
 }
+
 header {
-  background: #1f2937;
+  background-color: #333;
   color: white;
-  padding: 80px 20px;
   text-align: center;
+  padding: 20px;
 }
-header h1 {
-  font-size: 2.75rem;
-  margin-bottom: 10px;
+
+h1 {
+  font-size: 2em;
 }
-header p {
-  font-size: 1.1rem;
-  opacity: 0.85;
-}
-section {
-  padding: 60px 20px;
-  max-width: 960px;
-  margin: auto;
-}
+
 h2 {
-  font-size: 1.5rem;
-  border-left: 4px solid #4f46e5;
-  padding-left: 12px;
-  margin-top: 40px;
+  font-size: 1.5em;
 }
-ul {
-  padding-left: 20px;
-  line-height: 1.8;
-  list-style-type: circle;
-}
-li {
-  margin-bottom: 8px;
-}
+
 .card {
   background: white;
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 40px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.cta {
-  text-align: center;
-  margin-top: 60px;
-}
+
 .cta a {
-  background-color: #4f46e5;
+  background-color: #007bff;
   color: white;
-  padding: 14px 32px;
+  padding: 10px 20px;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 10px;
+  border-radius: 5px;
   display: inline-block;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
 .cta a:hover {
-  background-color: #3730a3;
+  background-color: #0056b3;
 }
-.form-page {
-  display: none;
-  padding: 60px 20px;
-  max-width: 600px;
-  margin: auto;
-}
-.form-page.active {
-  display: block;
-}
+
 form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
-input, textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
+
+form label,
+form input,
+form textarea,
+form button {
+  margin-bottom: 15px;
 }
-input[type="file"] {
-  padding: 8px;
-}
-button {
-  background-color: #4f46e5;
+
+form button {
+  background-color: #28a745;
   color: white;
-  padding: 12px;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  padding: 10px 20px;
   cursor: pointer;
 }
-button:hover {
-  background-color: #3730a3;
+
+form button:hover {
+  background-color: #218838;
 }
+
 #thankYouMessage {
   display: none;
   text-align: center;
-  margin-top: 40px;
-  font-size: 1.2rem;
-  color: #111827;
-  background: #e0e7ff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  font-size: 1.2em;
 }
-.option-page {
+
+#optionPage {
   display: none;
   text-align: center;
 }
-.option-page.active {
-  display: block;
+
+#optionPage button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#optionPage button:hover {
+  background-color: #218838;
+}
+
+.form-page {
+  display: none;
 }
