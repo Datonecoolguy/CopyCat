@@ -1,37 +1,42 @@
+// Fungsi untuk menampilkan halaman formulir
 function showFormPage() {
-  document.getElementById('landing').style.display = 'none'; // Hides landing page
-  document.getElementById('formPage').classList.add('active'); // Shows form page
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('formPage').classList.add('active');
 }
 
+// Fungsi untuk menangani pengiriman formulir
 function handleSubmit(event) {
-  event.preventDefault(); // Prevents the page from reloading on form submission
-  
-  // Hide all forms
+  event.preventDefault();
   document.querySelector('form').style.display = 'none';
-  
-  // Show the thank-you message
   document.getElementById('thankYouMessage').style.display = 'block';
 
-  // Save form data to localStorage
-  localStorage.setItem('formData', JSON.stringify({
+  // Simpan data formulir ke localStorage
+  const formData = {
     title: document.getElementById('title').value,
     description: document.getElementById('desc').value,
-    author: document.getElementById('author').value
-  }));
+    author: document.getElementById('author').value,
+    file: document.getElementById('file').files[0].name
+  };
 
-  // Show option page after 3 seconds
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  // Tampilkan opsi setelah 3 detik
   setTimeout(() => {
     document.getElementById('thankYouMessage').style.display = 'none';
     document.getElementById('optionPage').classList.add('active');
-  }, 3000); // 3 seconds delay
+  }, 3000); // Setelah 3 detik
 }
 
+// Fungsi untuk menyimpan pilihan jenis karya ke localStorage
 function saveOption(option) {
-  // Save the selected option to localStorage
-  localStorage.setItem('option', option);
+  const formData = JSON.parse(localStorage.getItem('formData')) || {};
+  formData.option = option;
+  
+  // Simpan pilihan dan data formulir ke localStorage
+  localStorage.setItem('formData', JSON.stringify(formData));
 
-  // Return to landing page after 3 seconds
+  // Kembali ke halaman utama setelah 3 detik
   setTimeout(() => {
-    window.location.reload(); // Reload the page to reset to the landing page
+    window.location.reload();
   }, 3000);
 }
