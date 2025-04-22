@@ -120,14 +120,6 @@
       border-radius: 12px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-    .submission-options {
-      display: flex;
-      gap: 16px;
-      margin-top: 20px;
-    }
-    .submission-options button {
-      flex: 1;
-    }
   </style>
 </head>
 <body>
@@ -170,16 +162,7 @@
 
   <section id="formPage" class="form-page">
     <h2>Formulir Pendaftaran Karya</h2>
-    
-    <div class="submission-options" id="submissionOptions">
-      <button onclick="selectType('Tulisan')">Tulisan</button>
-      <button onclick="selectType('Gambar')">Gambar</button>
-      <button onclick="selectType('Musik')">Musik</button>
-    </div>
-
     <form onsubmit="handleSubmit(event)">
-      <input type="hidden" id="type" name="type" />
-
       <label for="title">Judul Karya:</label>
       <input type="text" id="title" name="title" required>
 
@@ -194,7 +177,6 @@
 
       <button type="submit">Kirim</button>
     </form>
-    
     <div id="thankYouMessage">
       <p><strong>Terima kasih!</strong> Karyamu berhasil dikirim. Kontribusimu sangat berarti dalam membangun ekosistem digital yang lebih adil dan aman 🎉</p>
     </div>
@@ -206,28 +188,42 @@
       document.getElementById('formPage').classList.add('active');
     }
 
-    function selectType(type) {
-      document.getElementById('type').value = type;
-    }
-
     function handleSubmit(event) {
       event.preventDefault();
+      
+      // Save data to localStorage
+      const title = document.getElementById('title').value;
+      const desc = document.getElementById('desc').value;
+      const author = document.getElementById('author').value;
+
+      const submissionData = {
+        title: title,
+        desc: desc,
+        author: author
+      };
+
+      localStorage.setItem('submissionData', JSON.stringify(submissionData));
+
+      // Hide form and show thank you message
       document.querySelector('form').style.display = 'none';
-      document.getElementById('submissionOptions').style.display = 'none';
       document.getElementById('thankYouMessage').style.display = 'block';
 
+      // Redirect to the landing page after 3 seconds
       setTimeout(() => {
-        document.getElementById('formPage').classList.remove('active');
-        document.getElementById('formPage').style.display = 'none';
-        document.getElementById('landing').style.display = 'block';
-
-        // Reset form
-        document.querySelector('form').reset();
-        document.querySelector('form').style.display = 'flex';
-        document.getElementById('submissionOptions').style.display = 'flex';
-        document.getElementById('thankYouMessage').style.display = 'none';
+        window.location.href = 'index.html';
       }, 3000);
     }
+
+    // Check if there is stored data and display it when the page loads
+    window.onload = function() {
+      const storedData = localStorage.getItem('submissionData');
+      if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        document.getElementById('title').value = parsedData.title;
+        document.getElementById('desc').value = parsedData.desc;
+        document.getElementById('author').value = parsedData.author;
+      }
+    };
   </script>
 </body>
 </html>
