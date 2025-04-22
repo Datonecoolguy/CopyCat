@@ -8,96 +8,110 @@
   <style>
     * {
       box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
     }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #fdfbfb, #ebedee);
-      color: #333;
+      background: #f9f9f9;
+      color: #111;
     }
     header {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: #1f2937;
       color: white;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       margin-bottom: 10px;
     }
     header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: 1.1rem;
+      opacity: 0.85;
     }
     section {
       padding: 60px 20px;
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
     }
     h2 {
-      color: #1a1a1a;
-      border-left: 4px solid #007acc;
+      font-size: 1.5rem;
+      border-left: 4px solid #4f46e5;
       padding-left: 12px;
       margin-top: 40px;
     }
     ul {
       padding-left: 20px;
       line-height: 1.8;
+      list-style-type: circle;
     }
-    ul li {
-      margin-bottom: 10px;
+    li {
+      margin-bottom: 8px;
+    }
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 40px;
     }
     .cta {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 60px;
     }
     .cta a {
-      background-color: #007acc;
+      background-color: #4f46e5;
       color: white;
-      padding: 14px 28px;
+      padding: 14px 32px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .cta a:hover {
-      background-color: #005f99;
+      background-color: #3730a3;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Jaga Karyamu. Lawan Plagiarisme & Eksploitasi AI.</h1>
-    <p>Di era AI generatif, orisinalitas makin langka. Saatnya lindungi karyamu.</p>
+    <h1>Lindungi Karyamu</h1>
+    <p>Lawan Plagiarisme & Eksploitasi AI secara cerdas dan elegan.</p>
   </header>
 
   <section>
-    <h2>Apa yang Kami Tawarkan</h2>
-    <p>Sistem pelisensian dan perlindungan karya digital berbasis teknologi yang memastikan setiap karya tercatat, aman, dan terlindungi dari pencurian dan penyalahgunaan, termasuk oleh AI.</p>
+    <div class="card">
+      <h2>Apa yang Kami Tawarkan</h2>
+      <p>Website ini membantu kreator untuk melisensikan karya digital mereka dan melindunginya dari pencurian atau penyalahgunaan, termasuk oleh AI.</p>
+    </div>
 
-    <h2>Fitur Teknis Unggulan</h2>
-    <ul>
-      <li><strong>Lisensi Digital Otomatis:</strong> Pencatatan metadata karya dalam database terenkripsi.</li>
-      <li><strong>Deteksi Kemiripan & Plagiarisme:</strong> Analisis berbasis hash & NLP untuk cek duplikasi konten.</li>
-      <li><strong>Perlindungan AI-scraping:</strong> Blok crawler & tanam watermark tersembunyi yang tak bisa dibaca AI.</li>
-      <li><strong>Notifikasi Pelanggaran Otomatis:</strong> Deteksi dan kirim peringatan jika karya digunakan tanpa izin.</li>
-    </ul>
+    <div class="card">
+      <h2>Fitur Unggulan</h2>
+      <ul>
+        <li>Lisensi Digital Otomatis & Metadata Terverifikasi</li>
+        <li>Deteksi Kemiripan (Plagiarisme & AI-trained content)</li>
+        <li>Perlindungan Anti-Scraping & Watermark AI-invisible</li>
+        <li>Notifikasi Pelanggaran Otomatis & Bukti Digital</li>
+      </ul>
+    </div>
 
-    <h2>Manfaat untuk Kreator</h2>
-    <ul>
-      <li>Cegah pencurian dan pelatihan AI ilegal</li>
-      <li>Tingkatkan kepercayaan antara kreator dan pengguna</li>
-      <li>Permudah proses hukum jika terjadi pelanggaran</li>
-      <li>Beri rasa aman dalam berbagi dan berkarya</li>
-      <li>Dorong ekosistem digital yang adil dan etis</li>
-    </ul>
+    <div class="card">
+      <h2>Manfaat Bagi Kreator</h2>
+      <ul>
+        <li>Menjamin hak cipta kreator</li>
+        <li>Meningkatkan kepercayaan pengguna</li>
+        <li>Mempermudah proses hukum</li>
+        <li>Memberikan rasa aman saat berbagi</li>
+        <li>Mendorong ekosistem digital yang etis</li>
+      </ul>
+    </div>
 
     <div class="cta">
-      <a href="#">Daftarkan Karyamu Sekarang</a>
+      <a href="#">Daftarkan Karyamu</a>
     </div>
   </section>
 </body>
 </html>
-
