@@ -1,61 +1,38 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const multer = require('multer');
-const cors = require('cors');
-const path = require('path');
+<script>
+    // This function will be called when you click the "Daftarkan Karyamu" button
+    function showFormPage() {
+      document.getElementById('landing').style.display = 'none'; // Hides the landing page
+      document.getElementById('formPage').classList.add('active'); // Shows the form page
+    }
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+    // Functions to show the respective forms based on the choice
+    function showTextForm() {
+      hideAllForms(); // Hide all forms first
+      document.getElementById('textForm').style.display = 'block'; // Show the text form
+    }
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+    function showImageForm() {
+      hideAllForms(); // Hide all forms first
+      document.getElementById('imageForm').style.display = 'block'; // Show the image form
+    }
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/lindungi-karyamu', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+    function showVideoForm() {
+      hideAllForms(); // Hide all forms first
+      document.getElementById('videoForm').style.display = 'block'; // Show the video form
+    }
 
-// Define Schema
-const workSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    author: String,
-    filePath: String,
-});
+    // This function hides all the forms
+    function hideAllForms() {
+      document.getElementById('textForm').style.display = 'none';
+      document.getElementById('imageForm').style.display = 'none';
+      document.getElementById('videoForm').style.display = 'none';
+    }
 
-const Work = mongoose.model('Work', workSchema);
-
-// Set up multer for file uploads
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Append extension
-    },
-});
-
-const upload = multer({ storage });
-
-// API endpoint to upload work
-app.post('/api/upload', upload.single('file'), async (req, res) => {
-    const { title, description, author } = req.body;
-    const filePath = req.file.path;
-
-    const newWork = new Work({ title, description, author, filePath });
-    await newWork.save();
-    res.status(201).json({ message: 'Karya berhasil diupload!', work: newWork });
-});
-
-// API endpoint to get all works
-app.get('/api/works', async (req, res) => {
-    const works = await Work.find();
-    res.json(works);
-});
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+    // This function is called when a form is submitted
+    function handleSubmit(event, type) {
+      event.preventDefault(); // Prevents the page from reloading on form submission
+      document.querySelectorAll('form').forEach(form => form.style.display = 'none'); // Hides all forms
+      document.getElementById('thankYouMessage').style.display = 'block'; // Shows the thank-you message
+      console.log(`Submitted ${type} form.`); // Logs which form was submitted
+    }
+</script>
