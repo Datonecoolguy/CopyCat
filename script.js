@@ -8,25 +8,25 @@ function handleSubmit(event) {
   document.querySelector('form').style.display = 'none';
   document.getElementById('thankYouMessage').style.display = 'block';
 
-  // Simpan data ke localStorage
+  // Save data to localStorage
   localStorage.setItem('formData', JSON.stringify({
     title: document.getElementById('title').value,
     description: document.getElementById('desc').value,
     author: document.getElementById('author').value
   }));
 
-  // Tampilkan opsi setelah 3 detik
+  // Show options after 3 seconds
   setTimeout(() => {
     document.getElementById('thankYouMessage').style.display = 'none';
     document.getElementById('optionPage').classList.add('active');
-  }, 3000);
+  }, 3000); // After 3 seconds
 }
 
 function saveOption(option) {
-  // Simpan pilihan ke localStorage
+  // Save selected option to localStorage
   localStorage.setItem('option', option);
 
-  // Kembali ke halaman utama setelah 3 detik
+  // Go back to the landing page after 3 seconds
   setTimeout(() => {
     window.location.reload();
   }, 3000);
