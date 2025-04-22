@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lindungi Karyamu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <div class="container">
       <h1>Lindungi Karyamu</h1>
-      <p>Lawan Plagiarisme & Eksploitasi AI secara cerdas dan elegan.</p>
+      <p class="subtitle">Lawan Plagiarisme & Eksploitasi AI secara cerdas dan elegan.</p>
     </div>
   </header>
 
-  <section id="landing" class="section">
+  <section id="landing">
     <div class="container">
       <div class="card">
         <h2>Apa yang Kami Tawarkan</h2>
@@ -32,8 +32,19 @@
         </ul>
       </div>
 
+      <div class="card">
+        <h2>Manfaat Bagi Kreator</h2>
+        <ul>
+          <li>Menjamin hak cipta kreator</li>
+          <li>Meningkatkan kepercayaan pengguna</li>
+          <li>Mempermudah proses hukum</li>
+          <li>Memberikan rasa aman saat berbagi</li>
+          <li>Mendorong ekosistem digital yang etis</li>
+        </ul>
+      </div>
+
       <div class="cta">
-        <button onclick="showFormPage()">Daftarkan Karyamu</button>
+        <a href="#" onclick="showFormPage()">Daftarkan Karyamu</a>
       </div>
     </div>
   </section>
@@ -56,7 +67,8 @@
 
         <button type="submit">Kirim</button>
       </form>
-      <div id="thankYouMessage" style="display:none;">
+
+      <div id="thankYouMessage">
         <p><strong>Terima kasih!</strong> Karyamu berhasil dikirim. Kontribusimu sangat berarti dalam membangun ekosistem digital yang lebih adil dan aman 🎉</p>
       </div>
     </div>
