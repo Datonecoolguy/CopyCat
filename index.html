@@ -74,6 +74,41 @@
     .cta a:hover {
       background-color: #3730a3;
     }
+    .form-page {
+      display: none;
+      padding: 60px 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .form-page.active {
+      display: block;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    input[type="file"] {
+      padding: 8px;
+    }
+    button {
+      background-color: #4f46e5;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3730a3;
+    }
   </style>
 </head>
 <body>
@@ -82,7 +117,7 @@
     <p>Lawan Plagiarisme & Eksploitasi AI secara cerdas dan elegan.</p>
   </header>
 
-  <section>
+  <section id="landing">
     <div class="card">
       <h2>Apa yang Kami Tawarkan</h2>
       <p>Website ini membantu kreator untuk melisensikan karya digital mereka dan melindunginya dari pencurian atau penyalahgunaan, termasuk oleh AI.</p>
@@ -110,8 +145,35 @@
     </div>
 
     <div class="cta">
-      <a href="#">Daftarkan Karyamu</a>
+      <a href="#" onclick="showFormPage()">Daftarkan Karyamu</a>
     </div>
   </section>
+
+  <section id="formPage" class="form-page">
+    <h2>Formulir Pendaftaran Karya</h2>
+    <form>
+      <label for="title">Judul Karya:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="desc">Deskripsi:</label>
+      <textarea id="desc" name="desc" rows="4" required></textarea>
+
+      <label for="author">Nama Kreator:</label>
+      <input type="text" id="author" name="author" required>
+
+      <label for="file">Upload File:</label>
+      <input type="file" id="file" name="file" required>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <script>
+    function showFormPage() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('formPage').classList.add('active');
+    }
+  </script>
 </body>
 </html>
+
