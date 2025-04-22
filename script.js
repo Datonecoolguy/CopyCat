@@ -1,33 +1,37 @@
 function showFormPage() {
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('formPage').classList.add('active');
+  document.getElementById('landing').style.display = 'none'; // Hides landing page
+  document.getElementById('formPage').classList.add('active'); // Shows form page
 }
 
 function handleSubmit(event) {
-  event.preventDefault();
-  document.querySelector('form').style.display = 'none';
-  document.getElementById('thankYouMessage').style.display = 'block';
+  event.preventDefault(); // Prevents the page from reloading on form submission
   
-  // Simpan data ke localStorage
+  // Hide all forms
+  document.querySelector('form').style.display = 'none';
+  
+  // Show the thank-you message
+  document.getElementById('thankYouMessage').style.display = 'block';
+
+  // Save form data to localStorage
   localStorage.setItem('formData', JSON.stringify({
     title: document.getElementById('title').value,
     description: document.getElementById('desc').value,
     author: document.getElementById('author').value
   }));
-  
-  // Tampilkan opsi
+
+  // Show option page after 3 seconds
   setTimeout(() => {
     document.getElementById('thankYouMessage').style.display = 'none';
     document.getElementById('optionPage').classList.add('active');
-  }, 3000); // Setelah 3 detik
+  }, 3000); // 3 seconds delay
 }
 
 function saveOption(option) {
-  // Simpan pilihan ke localStorage
+  // Save the selected option to localStorage
   localStorage.setItem('option', option);
 
-  // Kembali ke landing page setelah 3 detik
+  // Return to landing page after 3 seconds
   setTimeout(() => {
-    window.location.reload();
+    window.location.reload(); // Reload the page to reset to the landing page
   }, 3000);
 }
