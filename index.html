@@ -9,69 +9,66 @@
 </head>
 <body>
   <header>
-    <h1>Lindungi Karyamu</h1>
-    <p>Lawan Plagiarisme & Eksploitasi AI secara cerdas dan elegan.</p>
+    <div class="container">
+      <h1>Lindungi Karyamu</h1>
+      <p>Lawan Plagiarisme & Eksploitasi AI secara cerdas dan elegan.</p>
+    </div>
   </header>
 
-  <section id="landing" class="landing-page">
-    <div class="card">
-      <h2>Apa yang Kami Tawarkan</h2>
-      <p>Website ini membantu kreator untuk melisensikan karya digital mereka dan melindunginya dari pencurian atau penyalahgunaan, termasuk oleh AI.</p>
-    </div>
+  <section id="landing" class="section">
+    <div class="container">
+      <div class="card">
+        <h2>Apa yang Kami Tawarkan</h2>
+        <p>Website ini membantu kreator untuk melisensikan karya digital mereka dan melindunginya dari pencurian atau penyalahgunaan, termasuk oleh AI.</p>
+      </div>
 
-    <div class="card">
-      <h2>Fitur Unggulan</h2>
-      <ul>
-        <li>Lisensi Digital Otomatis & Metadata Terverifikasi</li>
-        <li>Deteksi Kemiripan (Plagiarisme & AI-trained content)</li>
-        <li>Perlindungan Anti-Scraping & Watermark AI-invisible</li>
-        <li>Notifikasi Pelanggaran Otomatis & Bukti Digital</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2>Fitur Unggulan</h2>
+        <ul>
+          <li>Lisensi Digital Otomatis & Metadata Terverifikasi</li>
+          <li>Deteksi Kemiripan (Plagiarisme & AI-trained content)</li>
+          <li>Perlindungan Anti-Scraping & Watermark AI-invisible</li>
+          <li>Notifikasi Pelanggaran Otomatis & Bukti Digital</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h2>Manfaat Bagi Kreator</h2>
-      <ul>
-        <li>Menjamin hak cipta kreator</li>
-        <li>Meningkatkan kepercayaan pengguna</li>
-        <li>Mempermudah proses hukum</li>
-        <li>Memberikan rasa aman saat berbagi</li>
-        <li>Mendorong ekosistem digital yang etis</li>
-      </ul>
-    </div>
-
-    <div class="cta">
-      <a href="#" onclick="showFormPage()">Daftarkan Karyamu</a>
+      <div class="cta">
+        <button onclick="showFormPage()">Daftarkan Karyamu</button>
+      </div>
     </div>
   </section>
 
   <section id="formPage" class="form-page">
-    <h2>Formulir Pendaftaran Karya</h2>
-    <form onsubmit="handleSubmit(event)">
-      <label for="title">Judul Karya:</label>
-      <input type="text" id="title" name="title" required>
+    <div class="container">
+      <h2>Formulir Pendaftaran Karya</h2>
+      <form onsubmit="handleSubmit(event)">
+        <label for="title">Judul Karya:</label>
+        <input type="text" id="title" name="title" required>
 
-      <label for="desc">Deskripsi:</label>
-      <textarea id="desc" name="desc" rows="4" required></textarea>
+        <label for="desc">Deskripsi:</label>
+        <textarea id="desc" name="desc" rows="4" required></textarea>
 
-      <label for="author">Nama Kreator:</label>
-      <input type="text" id="author" name="author" required>
+        <label for="author">Nama Kreator:</label>
+        <input type="text" id="author" name="author" required>
 
-      <label for="file">Upload File:</label>
-      <input type="file" id="file" name="file" required>
+        <label for="file">Upload File:</label>
+        <input type="file" id="file" name="file" required>
 
-      <button type="submit">Kirim</button>
-    </form>
-    <div id="thankYouMessage">
-      <p><strong>Terima kasih!</strong> Karyamu berhasil dikirim. Kontribusimu sangat berarti dalam membangun ekosistem digital yang lebih adil dan aman 🎉</p>
+        <button type="submit">Kirim</button>
+      </form>
+      <div id="thankYouMessage" style="display:none;">
+        <p><strong>Terima kasih!</strong> Karyamu berhasil dikirim. Kontribusimu sangat berarti dalam membangun ekosistem digital yang lebih adil dan aman 🎉</p>
+      </div>
     </div>
   </section>
 
   <section id="optionPage" class="option-page">
-    <h2>Pilih Jenis Karya</h2>
-    <button onclick="saveOption('gambar')">Karya Gambar</button>
-    <button onclick="saveOption('teks')">Karya Teks</button>
-    <button onclick="saveOption('video')">Karya Video</button>
+    <div class="container">
+      <h2>Pilih Jenis Karya</h2>
+      <button onclick="saveOption('gambar')">Karya Gambar</button>
+      <button onclick="saveOption('teks')">Karya Teks</button>
+      <button onclick="saveOption('video')">Karya Video</button>
+    </div>
   </section>
 
   <script src="script.js"></script>
