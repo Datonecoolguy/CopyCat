@@ -19,7 +19,7 @@
     }
 
     /* Main Container */
-    .page {
+    .container {
       width: 100%;
       height: 100%;
       display: flex;
@@ -30,6 +30,11 @@
       padding: 20px;
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
 
     h2 {
@@ -43,28 +48,6 @@
     }
 
     /* Button Styling */
-    .cta a {
-      color: #1e90ff;
-      text-decoration: none;
-      font-size: 1.2rem;
-      margin-top: 20px;
-      transition: transform 0.3s ease-in-out;
-    }
-    .cta a:hover {
-      transform: translateY(-5px);
-    }
-
-    /* Page Content and Button Hover Animation */
-    .cta {
-      margin-top: 20px;
-    }
-
-    /* Animations for content visibility */
-    .page.active {
-      opacity: 1;
-    }
-
-    /* Button Section */
     #buttons {
       display: flex;
       flex-direction: column;
@@ -95,12 +78,58 @@
       background-color: #282828;
       border-radius: 10px;
     }
+
+    .back-button {
+      margin-top: 20px;
+      color: #1e90ff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease-in-out;
+    }
+    .back-button:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Form Styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      font-size: 1rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #333;
+      background-color: #444;
+      color: white;
+    }
+
+    form button {
+      background-color: #1e90ff;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #0066cc;
+    }
   </style>
 </head>
 
 <body>
-  <!-- Landing Section -->
-  <section id="landing">
+  <!-- Landing Page -->
+  <div id="landingPage" class="container">
     <h1>CopyCat</h1>
     <p>Lindungi Karya Anda dengan Sistem Perlindungan Digital Cerdas</p>
     <div id="buttons">
@@ -108,33 +137,29 @@
       <button onclick="showGallery()">Galeri Karya</button>
       <button onclick="showForm()">Daftarkan Karya</button>
     </div>
-  </section>
+  </div>
 
-  <!-- Latar Belakang Section -->
-  <section id="aboutPage" class="page">
+  <!-- Latar Belakang Page -->
+  <section id="aboutPage" class="container">
     <h2>Latar Belakang</h2>
     <p><strong>CopyCat</strong> adalah platform digital yang dirancang untuk melindungi karya-karya kreatif Anda. Di dunia digital saat ini, melindungi hak cipta dan karya asli sangat penting. Kami hadir untuk membantu para kreator dengan menyediakan perlindungan yang mudah diakses dan transparan.</p>
     <p><strong>Tujuan Proyek:</strong><br> Tujuan utama dari proyek ini adalah untuk memberikan sistem perlindungan yang dapat diandalkan bagi karya digital. Kami ingin memastikan bahwa setiap karya yang diposting memiliki perlindungan hukum dan dapat diakses oleh pihak yang berwenang.</p>
     <p><strong>Manfaat:</strong><br> - Melindungi karya Anda dari penyalahgunaan digital<br> - Memberikan sistem verifikasi yang aman<br> - Meningkatkan visibilitas karya kreatif Anda dengan cara yang aman</p>
     <p><strong>Fungsi:</strong><br> CopyCat berfungsi untuk memberikan para kreator ruang yang aman untuk memamerkan dan mendaftarkan karya mereka sambil memastikan bahwa karya tersebut dilindungi dari plagiarisme dan penyalahgunaan.</p>
-    <div class="cta">
-      <a href="#" onclick="hidePages()">Kembali</a>
-    </div>
+    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
   </section>
 
-  <!-- Galeri Karya Section (placeholder for now) -->
-  <section id="galleryPage" class="page">
+  <!-- Galeri Karya Page -->
+  <section id="galleryPage" class="container">
     <h2>Galeri Karya</h2>
     <p>Ini adalah galeri karya dari kreator yang telah melindungi hak cipta mereka menggunakan CopyCat. [Coming soon]</p>
-    <div class="cta">
-      <a href="#" onclick="hidePages()">Kembali</a>
-    </div>
+    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
   </section>
 
-  <!-- Daftarkan Karya Form Section -->
-  <section id="formPage" class="page">
+  <!-- Daftarkan Karya Form Page -->
+  <section id="formPage" class="container">
     <h2>Daftarkan Karya Anda</h2>
-    <form onsubmit="handleFormSubmit(event)">
+    <form id="karyaForm" onsubmit="handleFormSubmit(event)">
       <label for="title">Judul Karya:</label>
       <input type="text" id="title" name="title" required>
 
@@ -144,38 +169,46 @@
       <label for="author">Nama Kreator:</label>
       <input type="text" id="author" name="author" required>
 
+      <label for="type">Jenis Karya:</label>
+      <select id="type" name="type" required>
+        <option value="digital">Digital Art</option>
+        <option value="music">Music</option>
+        <option value="literature">Literature</option>
+      </select>
+
       <button type="submit">Kirim</button>
     </form>
     <div id="thankYouMessage" style="display:none;">
       <p><strong>Terima kasih!</strong> Karyamu berhasil didaftarkan.</p>
     </div>
+    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
   </section>
 
   <script>
     // Function to show the background page
     function showBackground() {
-      document.getElementById('aboutPage').classList.add('active');
-      document.getElementById('landing').style.display = 'none';
+      document.getElementById('aboutPage').style.display = 'block';
+      document.getElementById('landingPage').style.display = 'none';
     }
 
     // Function to show the gallery page
     function showGallery() {
-      document.getElementById('galleryPage').classList.add('active');
-      document.getElementById('landing').style.display = 'none';
+      document.getElementById('galleryPage').style.display = 'block';
+      document.getElementById('landingPage').style.display = 'none';
     }
 
     // Function to show the form page
     function showForm() {
-      document.getElementById('formPage').classList.add('active');
-      document.getElementById('landing').style.display = 'none';
+      document.getElementById('formPage').style.display = 'block';
+      document.getElementById('landingPage').style.display = 'none';
     }
 
     // Function to hide all pages and return to landing page
     function hidePages() {
-      document.getElementById('landing').style.display = 'block';
-      document.getElementById('aboutPage').classList.remove('active');
-      document.getElementById('galleryPage').classList.remove('active');
-      document.getElementById('formPage').classList.remove('active');
+      document.getElementById('landingPage').style.display = 'block';
+      document.getElementById('aboutPage').style.display = 'none';
+      document.getElementById('galleryPage').style.display = 'none';
+      document.getElementById('formPage').style.display = 'none';
     }
 
     // Handle the form submission
@@ -186,7 +219,8 @@
       localStorage.setItem('formData', JSON.stringify({
         title: document.getElementById('title').value,
         description: document.getElementById('desc').value,
-        author: document.getElementById('author').value
+        author: document.getElementById('author').value,
+        type: document.getElementById('type').value
       }));
       setTimeout(() => {
         hidePages();
