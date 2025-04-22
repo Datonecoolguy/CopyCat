@@ -1,6 +1,7 @@
 function showFormPage() {
   document.getElementById('landing').style.display = 'none';
   document.getElementById('formPage').classList.add('active');
+  document.getElementById('thankYouMessage').style.display = 'none';
 }
 
 function showTextForm() {
@@ -26,7 +27,22 @@ function hideAllForms() {
 
 function handleSubmit(event, type) {
   event.preventDefault();
-  document.querySelectorAll('form').forEach(f => f.style.display = 'none');
+
+  // Sembunyikan semua form & tombol
+  hideAllForms();
+  document.querySelector('.cta').style.display = 'none';
+
+  // Tampilkan ucapan terima kasih
   document.getElementById('thankYouMessage').style.display = 'block';
+
   console.log(`${type} form submitted.`);
+
+  // Balik ke landing page setelah 3 detik
+  setTimeout(() => {
+    document.getElementById('formPage').classList.remove('active');
+    document.getElementById('landing').style.display = 'block';
+
+    // Reset tombol form biar bisa dipakai lagi
+    document.querySelector('.cta').style.display = 'block';
+  }, 3000);
 }
