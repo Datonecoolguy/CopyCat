@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lindungi Karyamu</title>
+  <title>CopyCat</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
+      background-color: #121212;
+      color: #f5f5f5;
       overflow-x: hidden;
     }
 
     header {
-      background-color: #1a73e8;
-      color: white;
+      background-color: #1c1c1c;
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px;
       opacity: 0;
       animation: fadeIn 1s ease-in forwards;
     }
@@ -27,15 +26,16 @@
     header h1 {
       margin: 0;
       font-size: 3em;
-      font-weight: 600;
+      font-weight: 700;
+      color: #f5f5f5;
       transform: translateY(-20px);
       animation: slideUp 1s ease-in-out forwards;
     }
 
     header p {
-      margin-top: 10px;
       font-size: 1.2em;
       font-weight: 400;
+      color: #b0b0b0;
       transform: translateY(-20px);
       animation: slideUp 1s ease-in-out 0.5s forwards;
     }
@@ -51,55 +51,90 @@
       animation: fadeIn 1s ease-in 1s forwards;
     }
 
+    .cta {
+      display: flex;
+      gap: 30px;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .cta a {
-      background-color: #1a73e8;
+      background-color: #333;
       color: white;
-      padding: 15px 40px;
+      padding: 20px 40px;
       text-decoration: none;
       border-radius: 8px;
-      font-size: 1.2em;
+      font-size: 1.5em;
       font-weight: 600;
       transition: background-color 0.3s, transform 0.3s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in 2s forwards;
     }
 
     .cta a:hover {
-      background-color: #1558b0;
-      transform: scale(1.05);
+      background-color: #555;
+      transform: translateY(-10px);
     }
 
-    .option-page, .form-page, .about-page {
+    .cta a:active {
+      background-color: #777;
+      transform: translateY(0);
+    }
+
+    .cta a:nth-child(1) {
+      animation-delay: 0.5s;
+    }
+
+    .cta a:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .cta a:nth-child(3) {
+      animation-delay: 1.5s;
+    }
+
+    .page {
       display: none;
       padding: 20px;
-      background-color: white;
+      background-color: #1c1c1c;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       width: 100%;
-      max-width: 700px;
+      max-width: 800px;
       margin-top: 20px;
       opacity: 0;
       animation: fadeIn 1s ease-in 1s forwards;
     }
 
-    .option-page.active, .form-page.active, .about-page.active {
+    .page.active {
       display: block;
     }
 
-    .about-page p {
-      font-size: 1.1em;
+    .page h2 {
+      font-size: 2em;
+      color: #f5f5f5;
+    }
+
+    .page p {
+      font-size: 1.2em;
+      color: #b0b0b0;
       line-height: 1.6;
     }
 
     .form-page form {
       display: grid;
       gap: 15px;
+      color: #f5f5f5;
     }
 
     .form-page input, .form-page textarea {
       width: 100%;
       padding: 12px;
-      border: 1px solid #ddd;
+      border: 1px solid #555;
       border-radius: 8px;
       font-size: 1.1em;
+      color: #f5f5f5;
+      background-color: #333;
       transition: border 0.3s;
     }
 
@@ -124,37 +159,6 @@
       transform: scale(1.05);
     }
 
-    .cta {
-      margin-top: 30px;
-    }
-
-    .option-page button {
-      background-color: #1a73e8;
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.2em;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .option-page button:hover {
-      background-color: #1558b0;
-      transform: scale(1.05);
-    }
-
-    #thankYouMessage {
-      display: none;
-      background-color: #d4edda;
-      padding: 20px;
-      border-radius: 8px;
-      color: #155724;
-      font-size: 1.2em;
-      text-align: center;
-    }
-
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -177,88 +181,69 @@
 </head>
 <body>
   <header>
-    <h1>Lindungi Karyamu</h1>
-    <p>Melindungi karya digitalmu dari penyalahgunaan dengan cara cerdas dan aman.</p>
+    <h1>CopyCat</h1>
+    <p>Melindungi karya digital Anda dengan cara yang aman dan transparan</p>
   </header>
 
   <div class="main-content">
     <div class="cta">
-      <a href="#" onclick="showAboutPage()">Latar Belakang</a>
-    </div>
-
-    <div class="cta">
-      <a href="#" onclick="showOptionPage()">Pilih Jenis Karya</a>
-    </div>
-
-    <div class="cta">
-      <a href="#" onclick="showFormPage()">Daftarkan Karyamu</a>
+      <a href="#" onclick="showPage('aboutPage')">Latar Belakang</a>
+      <a href="#" onclick="showPage('galleryPage')">Galeri Karya</a>
+      <a href="#" onclick="showPage('formPage')">Daftarkan Karya Mu</a>
     </div>
   </div>
 
-  <section id="aboutPage" class="about-page">
+  <section id="aboutPage" class="page">
     <h2>Latar Belakang</h2>
-    <p>Proyek ini didirikan untuk membantu kreator digital melindungi karya mereka dari eksploitasi AI dan plagiarisme. Di dunia digital yang semakin berkembang, karya kreatif sering kali dicuri atau disalahgunakan tanpa izin. Kami hadir untuk memberikan perlindungan yang kuat dan transparan bagi setiap karya yang dihargai. Ini adalah inisiatif untuk menciptakan lingkungan digital yang lebih aman dan adil bagi semua kreator.</p>
+    <p>Proyek ini dibentuk untuk melindungi karya kreatif Anda dari pencurian atau penyalahgunaan digital. Di dunia yang semakin berkembang, kami memberikan perlindungan yang aman dan mudah diakses untuk para kreator.</p>
     <div class="cta">
-      <a href="#" onclick="hidePages()">Kembali ke Halaman Utama</a>
+      <a href="#" onclick="hidePages()">Kembali</a>
     </div>
   </section>
 
-  <section id="optionPage" class="option-page">
-    <h2>Pilih Jenis Karya</h2>
-    <button onclick="saveOption('gambar')">Karya Gambar</button>
-    <button onclick="saveOption('teks')">Karya Teks</button>
-    <button onclick="saveOption('video')">Karya Video</button>
+  <section id="galleryPage" class="page">
+    <h2>Galeri Karya</h2>
+    <p>Di sini, Anda dapat melihat berbagai karya yang telah terdaftar dalam sistem kami. Semuanya dilindungi dengan aman dan siap untuk dipamerkan kepada dunia.</p>
     <div class="cta">
-      <a href="#" onclick="hidePages()">Kembali ke Halaman Utama</a>
+      <a href="#" onclick="hidePages()">Kembali</a>
     </div>
   </section>
 
-  <section id="formPage" class="form-page">
-    <h2>Formulir Pendaftaran Karya</h2>
-    <form onsubmit="handleSubmit(event)">
+  <section id="formPage" class="form-page page">
+    <h2>Daftarkan Karya Anda</h2>
+    <form onsubmit="handleFormSubmit(event)">
       <label for="title">Judul Karya:</label>
       <input type="text" id="title" name="title" required>
 
       <label for="desc">Deskripsi:</label>
       <textarea id="desc" name="desc" rows="4" required></textarea>
 
+      <label for="type">Pilih Jenis Karya:</label>
+      <select id="type" name="type">
+        <option value="gambar">Karya Gambar</option>
+        <option value="teks">Karya Teks</option>
+        <option value="video">Karya Video</option>
+      </select>
+
       <button type="submit">Daftarkan Karya</button>
     </form>
   </section>
 
   <script>
-    function showAboutPage() {
-      document.getElementById('aboutPage').classList.add('active');
+    function showPage(pageId) {
       hidePages();
-    }
-
-    function showOptionPage() {
-      document.getElementById('optionPage').classList.add('active');
-      hidePages();
-    }
-
-    function showFormPage() {
-      document.getElementById('formPage').classList.add('active');
-      hidePages();
+      document.getElementById(pageId).classList.add('active');
     }
 
     function hidePages() {
-      document.getElementById('aboutPage').classList.remove('active');
-      document.getElementById('optionPage').classList.remove('active');
-      document.getElementById('formPage').classList.remove('active');
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
     }
 
-    function saveOption(option) {
-      console.log('Option saved: ' + option);
-    }
-
-    function handleSubmit(event) {
+    function handleFormSubmit(event) {
       event.preventDefault();
-      document.getElementById('thankYouMessage').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('thankYouMessage').style.display = 'none';
-        hidePages();
-      }, 3000);
+      alert('Karya telah didaftarkan!');
+      hidePages();
     }
   </script>
 </body>
