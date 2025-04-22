@@ -1,95 +1,141 @@
+/* General Styles */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
   margin: 0;
   padding: 0;
+  background-color: #f4f7fc;
+  color: #333;
 }
 
 header {
-  background-color: #333;
+  background-color: #003366;
   color: white;
   text-align: center;
+  padding: 40px 0;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+/* Landing Section */
+#landing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 20px;
-}
-
-h1 {
-  font-size: 2em;
-}
-
-h2 {
-  font-size: 1.5em;
+  background-color: #ffffff;
 }
 
 .card {
-  background: white;
-  margin: 10px;
+  background-color: #f9f9f9;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.card h2 {
+  color: #003366;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.card ul li {
+  margin: 8px 0;
+}
+
+/* CTA Button */
 .cta a {
-  background-color: #007bff;
+  display: inline-block;
+  background-color: #6699FF;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
-  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 .cta a:hover {
-  background-color: #0056b3;
+  background-color: #003366;
 }
 
-form {
+/* Form Page */
+.form-page {
+  display: none;
+  padding: 40px;
+  background-color: #ffffff;
+}
+
+.form-page form {
   display: flex;
   flex-direction: column;
 }
 
-form label,
-form input,
-form textarea,
-form button {
+.form-page form label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-page form input,
+.form-page form textarea,
+.form-page form button {
   margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-form button {
-  background-color: #28a745;
+.form-page form button {
+  background-color: #003366;
   color: white;
-  border: none;
-  padding: 10px 20px;
   cursor: pointer;
+  border: none;
 }
 
-form button:hover {
-  background-color: #218838;
+.form-page form button:hover {
+  background-color: #6699FF;
 }
 
 #thankYouMessage {
   display: none;
   text-align: center;
-  font-size: 1.2em;
+  padding: 20px;
+  background-color: #f0f9f0;
+  border: 1px solid #d0e0d0;
+  border-radius: 5px;
 }
 
-#optionPage {
+/* Option Page */
+.option-page {
   display: none;
   text-align: center;
+  padding: 20px;
 }
 
-#optionPage button {
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #28a745;
+.option-page button {
+  background-color: #6699FF;
   color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 10px;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
 }
 
-#optionPage button:hover {
-  background-color: #218838;
-}
-
-.form-page {
-  display: none;
+.option-page button:hover {
+  background-color: #003366;
 }
