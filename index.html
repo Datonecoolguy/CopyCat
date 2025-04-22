@@ -4,78 +4,176 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lindungi Karyamu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background-color: #004f85;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 36px;
+    }
+    header p {
+      font-size: 18px;
+    }
+    section {
+      padding: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 800px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .card ul {
+      list-style: none;
+      margin-left: 20px;
+    }
+    .card ul li {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    .cta a {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+    .cta a:hover {
+      background-color: #0056b3;
+    }
+    .form-page input, .form-page textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .form-page button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+    .form-page button:hover {
+      background-color: #218838;
+    }
+    .form-page .thank-you {
+      display: none;
+      text-align: center;
+      font-size: 18px;
+      color: #28a745;
+      margin-top: 20px;
+    }
+    .form-page .option-page {
+      display: none;
+      text-align: center;
+    }
+    .form-page .option-page button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .form-page .option-page button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <h1>Lindungi Karyamu</h1>
-      <p class="subtitle">Lawan Plagiarisme & Eksploitasi AI secara cerdas dan elegan.</p>
-    </div>
+    <h1>Lindungi Karyamu</h1>
+    <p>Lawan Plagiarisme & Eksploitasi AI secara cerdas dan elegan.</p>
   </header>
 
+  <!-- Landing Page -->
   <section id="landing">
-    <div class="container">
-      <div class="card">
-        <h2>Apa yang Kami Tawarkan</h2>
-        <p>Website ini membantu kreator untuk melisensikan karya digital mereka dan melindunginya dari pencurian atau penyalahgunaan, termasuk oleh AI.</p>
-      </div>
+    <div class="card">
+      <h2>Apa yang Kami Tawarkan</h2>
+      <p>Website ini membantu kreator untuk melisensikan karya digital mereka dan melindunginya dari pencurian atau penyalahgunaan, termasuk oleh AI.</p>
+    </div>
 
-      <div class="card">
-        <h2>Fitur Unggulan</h2>
-        <ul>
-          <li>Lisensi Digital Otomatis & Metadata Terverifikasi</li>
-          <li>Deteksi Kemiripan (Plagiarisme & AI-trained content)</li>
-          <li>Perlindungan Anti-Scraping & Watermark AI-invisible</li>
-          <li>Notifikasi Pelanggaran Otomatis & Bukti Digital</li>
-        </ul>
-      </div>
+    <div class="card">
+      <h2>Fitur Unggulan</h2>
+      <ul>
+        <li>Lisensi Digital Otomatis & Metadata Terverifikasi</li>
+        <li>Deteksi Kemiripan (Plagiarisme & AI-trained content)</li>
+        <li>Perlindungan Anti-Scraping & Watermark AI-invisible</li>
+        <li>Notifikasi Pelanggaran Otomatis & Bukti Digital</li>
+      </ul>
+    </div>
 
-      <div class="card">
-        <h2>Manfaat Bagi Kreator</h2>
-        <ul>
-          <li>Menjamin hak cipta kreator</li>
-          <li>Meningkatkan kepercayaan pengguna</li>
-          <li>Mempermudah proses hukum</li>
-          <li>Memberikan rasa aman saat berbagi</li>
-          <li>Mendorong ekosistem digital yang etis</li>
-        </ul>
-      </div>
+    <div class="card">
+      <h2>Manfaat Bagi Kreator</h2>
+      <ul>
+        <li>Menjamin hak cipta kreator</li>
+        <li>Meningkatkan kepercayaan pengguna</li>
+        <li>Mempermudah proses hukum</li>
+        <li>Memberikan rasa aman saat berbagi</li>
+        <li>Mendorong ekosistem digital yang etis</li>
+      </ul>
+    </div>
 
-      <div class="cta">
-        <a href="#" onclick="showFormPage()">Daftarkan Karyamu</a>
-      </div>
+    <div class="cta">
+      <a href="#" onclick="showFormPage()">Daftarkan Karyamu</a>
     </div>
   </section>
 
+  <!-- Form Page -->
   <section id="formPage" class="form-page">
-    <div class="container">
-      <h2>Formulir Pendaftaran Karya</h2>
-      <form onsubmit="handleSubmit(event)">
-        <label for="title">Judul Karya:</label>
-        <input type="text" id="title" name="title" required>
+    <h2>Formulir Pendaftaran Karya</h2>
+    <form onsubmit="handleSubmit(event)">
+      <label for="title">Judul Karya:</label>
+      <input type="text" id="title" name="title" required>
 
-        <label for="desc">Deskripsi:</label>
-        <textarea id="desc" name="desc" rows="4" required></textarea>
+      <label for="desc">Deskripsi:</label>
+      <textarea id="desc" name="desc" rows="4" required></textarea>
 
-        <label for="author">Nama Kreator:</label>
-        <input type="text" id="author" name="author" required>
+      <label for="author">Nama Kreator:</label>
+      <input type="text" id="author" name="author" required>
 
-        <label for="file">Upload File:</label>
-        <input type="file" id="file" name="file" required>
+      <label for="file">Upload File:</label>
+      <input type="file" id="file" name="file" required>
 
-        <button type="submit">Kirim</button>
-      </form>
+      <button type="submit">Kirim</button>
+    </form>
 
-      <div id="thankYouMessage">
-        <p><strong>Terima kasih!</strong> Karyamu berhasil dikirim. Kontribusimu sangat berarti dalam membangun ekosistem digital yang lebih adil dan aman 🎉</p>
-      </div>
+    <div class="thank-you" id="thankYouMessage">
+      <p><strong>Terima kasih!</strong> Karyamu berhasil dikirim. Kontribusimu sangat berarti dalam membangun ekosistem digital yang lebih adil dan aman 🎉</p>
     </div>
-  </section>
 
-  <section id="optionPage" class="option-page">
-    <div class="container">
+    <div class="option-page" id="optionPage">
       <h2>Pilih Jenis Karya</h2>
       <button onclick="saveOption('gambar')">Karya Gambar</button>
       <button onclick="saveOption('teks')">Karya Teks</button>
@@ -83,6 +181,43 @@
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <script>
+    // Show Form Page
+    function showFormPage() {
+      document.getElementById('landing').style.display = 'none'; 
+      document.getElementById('formPage').style.display = 'block';
+    }
+
+    // Handle Form Submit
+    function handleSubmit(event) {
+      event.preventDefault();
+      document.querySelector('form').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+
+      // Simpan data ke localStorage
+      localStorage.setItem('formData', JSON.stringify({
+        title: document.getElementById('title').value,
+        description: document.getElementById('desc').value,
+        author: document.getElementById('author').value
+      }));
+
+      // Tampilkan opsi setelah 3 detik
+      setTimeout(() => {
+        document.getElementById('thankYouMessage').style.display = 'none';
+        document.getElementById('optionPage').style.display = 'block';
+      }, 3000);
+    }
+
+    // Simpan Pilihan ke localStorage
+    function saveOption(option) {
+      localStorage.setItem('option', option);
+
+      // Kembali ke landing page setelah 3 detik
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
+  </script>
+
 </body>
 </html>
