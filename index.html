@@ -47,7 +47,7 @@
 
   <section id="formPage" class="form-page">
     <h2>Formulir Pendaftaran Karya</h2>
-    <form id="form" onsubmit="handleSubmit(event)">
+    <form onsubmit="handleSubmit(event)">
       <label for="title">Judul Karya:</label>
       <input type="text" id="title" name="title" required>
 
@@ -60,15 +60,8 @@
       <label for="file">Upload File:</label>
       <input type="file" id="file" name="file" required>
 
-      <div id="formButtons">
-        <button type="button" onclick="saveOption('gambar')">Karya Gambar</button>
-        <button type="button" onclick="saveOption('teks')">Karya Teks</button>
-        <button type="button" onclick="saveOption('video')">Karya Video</button>
-      </div>
-
       <button type="submit">Kirim</button>
     </form>
-
     <div id="thankYouMessage">
       <p><strong>Terima kasih!</strong> Karyamu berhasil dikirim. Kontribusimu sangat berarti dalam membangun ekosistem digital yang lebih adil dan aman 🎉</p>
     </div>
