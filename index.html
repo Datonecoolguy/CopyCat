@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CopyCat - Lindungi Karyamu</title>
   <style>
-    /* Basic Reset */
     * {
       margin: 0;
       padding: 0;
@@ -20,8 +19,6 @@
       justify-content: center;
       align-items: center;
     }
-
-    /* Container for all content */
     .container {
       width: 80%;
       height: 80%;
@@ -35,20 +32,16 @@
       background: linear-gradient(45deg, #333, #222);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-
     h1 {
       font-size: 3rem;
       margin-bottom: 20px;
       font-weight: 600;
     }
-
     p {
       font-size: 1.2rem;
       margin-bottom: 15px;
       line-height: 1.5;
     }
-
-    /* Buttons Section */
     #buttons {
       display: flex;
       justify-content: space-between;
@@ -56,7 +49,6 @@
       max-width: 500px;
       margin-top: 30px;
     }
-
     #buttons button {
       background-color: #333;
       border: none;
@@ -68,13 +60,10 @@
       width: 30%;
       transition: all 0.3s ease;
     }
-
     #buttons button:hover {
       background-color: #555;
       transform: translateY(-5px);
     }
-
-    /* Pages Styles */
     section {
       display: none;
       padding: 40px;
@@ -82,7 +71,6 @@
       background-color: #282828;
       border-radius: 10px;
     }
-
     .back-button {
       margin-top: 20px;
       color: #1e90ff;
@@ -90,19 +78,15 @@
       font-size: 1.2rem;
       transition: transform 0.3s ease-in-out;
     }
-
     .back-button:hover {
       transform: translateY(-5px);
     }
-
-    /* Form Styles */
     form {
       display: flex;
       flex-direction: column;
       gap: 20px;
       font-size: 1.2rem;
     }
-
     form input, form textarea, form select {
       width: 100%;
       padding: 12px;
@@ -112,7 +96,6 @@
       color: white;
       font-size: 1.1rem;
     }
-
     form button {
       background-color: #1e90ff;
       color: white;
@@ -122,22 +105,26 @@
       font-size: 1.2rem;
       transition: background-color 0.3s ease;
     }
-
     form button:hover {
       background-color: #0066cc;
     }
-
     #thankYouMessage {
       display: none;
       color: #32CD32;
       font-size: 1.2rem;
     }
+    .gallery-item {
+      text-align: left;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background-color: #333;
+    }
   </style>
 </head>
-
 <body>
 
-  <!-- Landing Page -->
   <div id="landingPage" class="container">
     <h1>CopyCat</h1>
     <p>Lindungi Karya Anda dengan Sistem Perlindungan Digital Cerdas</p>
@@ -148,24 +135,23 @@
     </div>
   </div>
 
-  <!-- Latar Belakang Page -->
   <section id="aboutPage">
     <h2>Latar Belakang</h2>
-    <p><strong>CopyCat</strong> adalah platform digital yang dirancang untuk melindungi karya-karya kreatif Anda. Di dunia digital saat ini, melindungi hak cipta dan karya asli sangat penting. Kami hadir untuk membantu para kreator dengan menyediakan perlindungan yang mudah diakses dan transparan.</p>
-    <p><strong>Tujuan Proyek:</strong><br> Tujuan utama dari proyek ini adalah untuk memberikan sistem perlindungan yang dapat diandalkan bagi karya digital. Kami ingin memastikan bahwa setiap karya yang diposting memiliki perlindungan hukum dan dapat diakses oleh pihak yang berwenang.</p>
-    <p><strong>Manfaat:</strong><br> - Melindungi karya Anda dari penyalahgunaan digital<br> - Memberikan sistem verifikasi yang aman<br> - Meningkatkan visibilitas karya kreatif Anda dengan cara yang aman</p>
-    <p><strong>Fungsi:</strong><br> CopyCat berfungsi untuk memberikan para kreator ruang yang aman untuk memamerkan dan mendaftarkan karya mereka sambil memastikan bahwa karya tersebut dilindungi dari plagiarisme dan penyalahgunaan.</p>
+    <p><strong>CopyCat</strong> adalah platform digital yang dirancang untuk melindungi karya-karya kreatif Anda.</p>
+    <p><strong>Tujuan Proyek:</strong><br> Memberikan sistem perlindungan yang dapat diandalkan bagi karya digital.</p>
+    <p><strong>Manfaat:</strong><br> - Melindungi karya Anda<br> - Sistem verifikasi aman<br> - Visibilitas karya kreatif</p>
+    <p><strong>Fungsi:</strong><br> Menyediakan ruang yang aman untuk memamerkan dan mendaftarkan karya kreatif Anda.</p>
     <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
   </section>
 
-  <!-- Galeri Karya Page -->
   <section id="galleryPage">
     <h2>Galeri Karya</h2>
-    <p>Ini adalah galeri karya dari kreator yang telah melindungi hak cipta mereka menggunakan CopyCat. [Coming soon]</p>
+    <div id="galleryList">
+      <p>Memuat data karya...</p>
+    </div>
     <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
   </section>
 
-  <!-- Daftarkan Karya Form Page -->
   <section id="formPage">
     <h2>Daftarkan Karya Anda</h2>
     <form id="karyaForm" onsubmit="handleFormSubmit(event)">
@@ -194,47 +180,65 @@
   </section>
 
   <script>
-    // Function to show the background page
     function showBackground() {
       document.getElementById('aboutPage').style.display = 'block';
       document.getElementById('landingPage').style.display = 'none';
     }
 
-    // Function to show the gallery page
     function showGallery() {
       document.getElementById('galleryPage').style.display = 'block';
       document.getElementById('landingPage').style.display = 'none';
+      loadGallery();
     }
 
-    // Function to show the form page
     function showForm() {
       document.getElementById('formPage').style.display = 'block';
       document.getElementById('landingPage').style.display = 'none';
     }
 
-    // Function to hide all pages and return to landing page
     function hidePages() {
       document.getElementById('landingPage').style.display = 'block';
       document.getElementById('aboutPage').style.display = 'none';
       document.getElementById('galleryPage').style.display = 'none';
       document.getElementById('formPage').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'none';
     }
 
-    // Handle the form submission
     function handleFormSubmit(event) {
       event.preventDefault();
-      document.getElementById('formPage').style.display = 'none';
-      document.getElementById('thankYouMessage').style.display = 'block';
-      localStorage.setItem('formData', JSON.stringify({
+      const formData = {
         title: document.getElementById('title').value,
         description: document.getElementById('desc').value,
         author: document.getElementById('author').value,
         type: document.getElementById('type').value
-      }));
+      };
+      let karyaList = JSON.parse(localStorage.getItem('karyaList')) || [];
+      karyaList.push(formData);
+      localStorage.setItem('karyaList', JSON.stringify(karyaList));
+      document.getElementById('formPage').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
       setTimeout(() => {
         hidePages();
-      }, 3000); // Return to landing after 3 seconds
+      }, 3000);
+    }
+
+    function loadGallery() {
+      const galleryList = document.getElementById('galleryList');
+      const karyaList = JSON.parse(localStorage.getItem('karyaList')) || [];
+      if (karyaList.length === 0) {
+        galleryList.innerHTML = '<p>Belum ada karya yang didaftarkan.</p>';
+        return;
+      }
+      galleryList.innerHTML = karyaList.map(karya => `
+        <div class="gallery-item">
+          <strong>${karya.title}</strong><br>
+          <em>${karya.type}</em><br>
+          <p>${karya.description}</p>
+          <small>by ${karya.author}</small>
+        </div>
+      `).join('');
     }
   </script>
+
 </body>
 </html>
