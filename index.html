@@ -1,127 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Introducing ChatGPT - Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CopyCat - Lindungi Karyamu</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #000;
-      color: white;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    header {
-      padding: 1rem;
+    body, html {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      background-color: #1a1a1a;
+      color: #e0e0e0;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      background-color: #111;
-      border-bottom: 1px solid #333;
+      padding: 20px;
     }
 
     .container {
-      padding: 2rem;
+      width: 100%;
       max-width: 700px;
-      margin: auto;
-    }
-
-    .date {
-      color: #999;
-      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 12px;
+      background-color: #2a2a2a;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      padding: 40px 20px;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
     }
 
     p {
-      line-height: 1.6;
       font-size: 1.1rem;
+      margin-bottom: 10px;
+      line-height: 1.6;
     }
 
-    .button-group {
+    #buttons {
       display: flex;
-      gap: 1rem;
-      margin: 2rem 0;
+      justify-content: center;
       flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 25px;
     }
 
-    .button {
-      padding: 0.8rem 1.5rem;
-      background-color: #222;
-      border: 1px solid #555;
+    #buttons button {
+      background-color: #3b3b3b;
+      border: 1px solid #444;
       color: white;
-      text-decoration: none;
+      font-size: 1rem;
+      padding: 15px 25px;
       border-radius: 8px;
-      transition: 0.3s;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .button:hover {
-      background-color: #333;
-      border-color: #888;
+    #buttons button:hover {
+      background-color: #4a4a4a;
+      transform: translateY(-3px);
     }
 
-    a {
+    section {
+      display: none;
+      width: 100%;
+      background-color: #2a2a2a;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .back-button {
+      margin-top: 30px;
       color: #00aaff;
       text-decoration: none;
+      font-size: 1rem;
+      display: inline-block;
+      transition: transform 0.3s ease;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .back-button:hover {
+      transform: translateY(-2px);
     }
 
-    .loading-placeholder {
-      margin-top: 2rem;
-      background-color: #222;
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      font-style: italic;
-      color: #ccc;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #555;
+      background-color: #333;
+      color: white;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #00aaff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: white;
+      margin-top: 10px;
+    }
+
+    form button:hover {
+      background-color: #008ecc;
+    }
+
+    #thankYouMessage {
+      display: none;
+      color: #00ff90;
+      font-size: 1.2rem;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div>OpenAI</div>
-    <div>Introducing ChatGPT</div>
-  </header>
-
-  <div class="container">
-    <div class="date">November 30, 2022 · Product</div>
-    <h1>Introducing ChatGPT</h1>
-
-    <div class="button-group">
-      <a href="#" class="button">Try ChatGPT</a>
-      <a href="#" class="button">Download ChatGPT desktop</a>
+  <div id="landingPage" class="container">
+    <h1>CopyCat</h1>
+    <p>Lindungi Karya Anda dengan Sistem Perlindungan Digital Cerdas</p>
+    <div id="buttons">
+      <button onclick="showBackground()">Latar Belakang</button>
+      <button onclick="showGallery()">Galeri Karya</button>
+      <button onclick="showForm()">Daftarkan Karya</button>
     </div>
-
-    <a href="#">Learn about ChatGPT →</a>
-
-    <div class="loading-placeholder" id="loadingText">▶ Loading...</div>
-
-    <p>
-      We’ve trained a model called ChatGPT which interacts in a conversational way. 
-      The dialogue format makes it possible for ChatGPT to answer follow-up questions, admit its mistakes, 
-      challenge incorrect premises, and reject inappropriate requests.
-    </p>
-
-    <p>
-      ChatGPT is a sibling model to <a href="#">InstructGPT</a>, which is trained to follow an instruction 
-      in a prompt and provide a detailed response.
-    </p>
   </div>
 
-  <script>
-    // Contoh animasi tulisan loading berubah jadi "Loaded!" setelah 3 detik
-    setTimeout(() => {
-      document.getElementById("loadingText").textContent = "✓ Loaded.";
-    }, 3000);
-  </script>
+  <section id="aboutPage">
+    <h2>Latar Belakang</h2>
+    <p><strong>CopyCat</strong> adalah platform digital yang dirancang untuk melindungi karya-karya kreatif Anda. Di dunia digital saat ini, melindungi hak cipta dan karya asli sangat penting. Kami hadir untuk membantu para kreator dengan menyediakan perlindungan yang mudah diakses dan transparan.</p>
+    <p><strong>Tujuan Proyek:</strong><br> Tujuan utama dari proyek ini adalah untuk memberikan sistem perlindungan yang dapat diandalkan bagi karya digital. Kami ingin memastikan bahwa setiap karya yang diposting memiliki perlindungan hukum dan dapat diakses oleh pihak yang berwenang.</p>
+    <p><strong>Manfaat:</strong><br> - Melindungi karya Anda dari penyalahgunaan digital<br> - Memberikan sistem verifikasi yang aman<br> - Meningkatkan visibilitas karya kreatif Anda dengan cara yang aman</p>
+    <p><strong>Fungsi:</strong><br> CopyCat berfungsi untuk memberikan para kreator ruang yang aman untuk memamerkan dan mendaftarkan karya mereka sambil memastikan bahwa karya tersebut dilindungi dari plagiarisme dan penyalahgunaan.</p>
+    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
+  </section>
 
+  <section id="galleryPage">
+    <h2>Galeri Karya</h2>
+    <p>Ini adalah galeri karya dari kreator yang telah melindungi hak cipta mereka menggunakan CopyCat. [Coming soon]</p>
+    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
+  </section>
+
+  <section id="formPage">
+    <h2>Daftarkan Karya Anda</h2>
+    <form id="karyaForm" onsubmit="handleFormSubmit(event)">
+      <label for="title">Judul Karya:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="desc">Deskripsi Karya:</label>
+      <textarea id="desc" name="desc" required></textarea>
+
+      <label for="author">Nama Kreator:</label>
+      <input type="text" id="author" name="author" required>
+
+      <label for="type">Jenis Karya:</label>
+      <select id="type" name="type" required>
+        <option value="digital">Digital Art</option>
+        <option value="music">Music</option>
+        <option value="literature">Literature</option>
+      </select>
+
+      <button type="submit">Kirim</button>
+    </form>
+    <div id="thankYouMessage">
+      <p><strong>Terima kasih!</strong> Karyamu berhasil didaftarkan.</p>
+    </div>
+    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
+  </section>
+
+  <script>
+    function showBackground() {
+      document.getElementById('aboutPage').style.display = 'block';
+      document.getElementById('landingPage').style.display = 'none';
+    }
+
+    function showGallery() {
+      document.getElementById('galleryPage').style.display = 'block';
+      document.getElementById('landingPage').style.display = 'none';
+    }
+
+    function showForm() {
+      document.getElementById('formPage').style.display = 'block';
+      document.getElementById('landingPage').style.display = 'none';
+    }
+
+    function hidePages() {
+      document.getElementById('landingPage').style.display = 'block';
+      document.getElementById('aboutPage').style.display = 'none';
+      document.getElementById('galleryPage').style.display = 'none';
+      document.getElementById('formPage').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'none';
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      document.getElementById('formPage').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+      localStorage.setItem('formData', JSON.stringify({
+        title: document.getElementById('title').value,
+        description: document.getElementById('desc').value,
+        author: document.getElementById('author').value,
+        type: document.getElementById('type').value
+      }));
+      setTimeout(() => {
+        hidePages();
+      }, 3000);
+    }
+  </script>
 </body>
 </html>
