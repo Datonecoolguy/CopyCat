@@ -1,243 +1,126 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CopyCat - Lindungi Karyamu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introducing ChatGPT - Style</title>
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      font-family: 'Arial', sans-serif;
-      height: 100%;
-      background-color: #1e1e1e;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
-    .container {
-      width: 80%;
-      height: 80%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      border-radius: 15px;
-      background: linear-gradient(45deg, #333, #222);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-    #buttons {
+
+    header {
+      padding: 1rem;
       display: flex;
       justify-content: space-between;
-      width: 100%;
-      max-width: 500px;
-      margin-top: 30px;
+      align-items: center;
+      background-color: #111;
+      border-bottom: 1px solid #333;
     }
-    #buttons button {
-      background-color: #333;
-      border: none;
-      color: white;
+
+    .container {
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .date {
+      color: #999;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
       font-size: 1.1rem;
-      padding: 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      width: 30%;
-      transition: all 0.3s ease;
     }
-    #buttons button:hover {
-      background-color: #555;
-      transform: translateY(-5px);
-    }
-    section {
-      display: none;
-      padding: 40px;
-      margin-top: 20px;
-      background-color: #282828;
-      border-radius: 10px;
-    }
-    .back-button {
-      margin-top: 20px;
-      color: #1e90ff;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: transform 0.3s ease-in-out;
-    }
-    .back-button:hover {
-      transform: translateY(-5px);
-    }
-    form {
+
+    .button-group {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-      font-size: 1.2rem;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
     }
-    form input, form textarea, form select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background-color: #444;
+
+    .button {
+      padding: 0.8rem 1.5rem;
+      background-color: #222;
+      border: 1px solid #555;
       color: white;
-      font-size: 1.1rem;
-    }
-    form button {
-      background-color: #1e90ff;
-      color: white;
-      padding: 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: background-color 0.3s ease;
-    }
-    form button:hover {
-      background-color: #0066cc;
-    }
-    #thankYouMessage {
-      display: none;
-      color: #32CD32;
-      font-size: 1.2rem;
-    }
-    .gallery-item {
-      text-align: left;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #444;
+      text-decoration: none;
       border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
       background-color: #333;
+      border-color: #888;
+    }
+
+    a {
+      color: #00aaff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .loading-placeholder {
+      margin-top: 2rem;
+      background-color: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      font-style: italic;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
-  <div id="landingPage" class="container">
-    <h1>CopyCat</h1>
-    <p>Lindungi Karya Anda dengan Sistem Perlindungan Digital Cerdas</p>
-    <div id="buttons">
-      <button onclick="showBackground()">Latar Belakang</button>
-      <button onclick="showGallery()">Galeri Karya</button>
-      <button onclick="showForm()">Daftarkan Karya</button>
+  <header>
+    <div>OpenAI</div>
+    <div>Introducing ChatGPT</div>
+  </header>
+
+  <div class="container">
+    <div class="date">November 30, 2022 · Product</div>
+    <h1>Introducing ChatGPT</h1>
+
+    <div class="button-group">
+      <a href="#" class="button">Try ChatGPT</a>
+      <a href="#" class="button">Download ChatGPT desktop</a>
     </div>
+
+    <a href="#">Learn about ChatGPT →</a>
+
+    <div class="loading-placeholder" id="loadingText">▶ Loading...</div>
+
+    <p>
+      We’ve trained a model called ChatGPT which interacts in a conversational way. 
+      The dialogue format makes it possible for ChatGPT to answer follow-up questions, admit its mistakes, 
+      challenge incorrect premises, and reject inappropriate requests.
+    </p>
+
+    <p>
+      ChatGPT is a sibling model to <a href="#">InstructGPT</a>, which is trained to follow an instruction 
+      in a prompt and provide a detailed response.
+    </p>
   </div>
 
-  <section id="aboutPage">
-    <h2>Latar Belakang</h2>
-    <p><strong>CopyCat</strong> adalah platform digital yang dirancang untuk melindungi karya-karya kreatif Anda.</p>
-    <p><strong>Tujuan Proyek:</strong><br> Memberikan sistem perlindungan yang dapat diandalkan bagi karya digital.</p>
-    <p><strong>Manfaat:</strong><br> - Melindungi karya Anda<br> - Sistem verifikasi aman<br> - Visibilitas karya kreatif</p>
-    <p><strong>Fungsi:</strong><br> Menyediakan ruang yang aman untuk memamerkan dan mendaftarkan karya kreatif Anda.</p>
-    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
-  </section>
-
-  <section id="galleryPage">
-    <h2>Galeri Karya</h2>
-    <div id="galleryList">
-      <p>Memuat data karya...</p>
-    </div>
-    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
-  </section>
-
-  <section id="formPage">
-    <h2>Daftarkan Karya Anda</h2>
-    <form id="karyaForm" onsubmit="handleFormSubmit(event)">
-      <label for="title">Judul Karya:</label>
-      <input type="text" id="title" name="title" required>
-
-      <label for="desc">Deskripsi Karya:</label>
-      <textarea id="desc" name="desc" required></textarea>
-
-      <label for="author">Nama Kreator:</label>
-      <input type="text" id="author" name="author" required>
-
-      <label for="type">Jenis Karya:</label>
-      <select id="type" name="type" required>
-        <option value="digital">Digital Art</option>
-        <option value="music">Music</option>
-        <option value="literature">Literature</option>
-      </select>
-
-      <button type="submit">Kirim</button>
-    </form>
-    <div id="thankYouMessage">
-      <p><strong>Terima kasih!</strong> Karyamu berhasil didaftarkan.</p>
-    </div>
-    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
-  </section>
-
   <script>
-    function showBackground() {
-      document.getElementById('aboutPage').style.display = 'block';
-      document.getElementById('landingPage').style.display = 'none';
-    }
-
-    function showGallery() {
-      document.getElementById('galleryPage').style.display = 'block';
-      document.getElementById('landingPage').style.display = 'none';
-      loadGallery();
-    }
-
-    function showForm() {
-      document.getElementById('formPage').style.display = 'block';
-      document.getElementById('landingPage').style.display = 'none';
-    }
-
-    function hidePages() {
-      document.getElementById('landingPage').style.display = 'block';
-      document.getElementById('aboutPage').style.display = 'none';
-      document.getElementById('galleryPage').style.display = 'none';
-      document.getElementById('formPage').style.display = 'none';
-      document.getElementById('thankYouMessage').style.display = 'none';
-    }
-
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const formData = {
-        title: document.getElementById('title').value,
-        description: document.getElementById('desc').value,
-        author: document.getElementById('author').value,
-        type: document.getElementById('type').value
-      };
-      let karyaList = JSON.parse(localStorage.getItem('karyaList')) || [];
-      karyaList.push(formData);
-      localStorage.setItem('karyaList', JSON.stringify(karyaList));
-      document.getElementById('formPage').style.display = 'none';
-      document.getElementById('thankYouMessage').style.display = 'block';
-      setTimeout(() => {
-        hidePages();
-      }, 3000);
-    }
-
-    function loadGallery() {
-      const galleryList = document.getElementById('galleryList');
-      const karyaList = JSON.parse(localStorage.getItem('karyaList')) || [];
-      if (karyaList.length === 0) {
-        galleryList.innerHTML = '<p>Belum ada karya yang didaftarkan.</p>';
-        return;
-      }
-      galleryList.innerHTML = karyaList.map(karya => `
-        <div class="gallery-item">
-          <strong>${karya.title}</strong><br>
-          <em>${karya.type}</em><br>
-          <p>${karya.description}</p>
-          <small>by ${karya.author}</small>
-        </div>
-      `).join('');
-    }
+    // Contoh animasi tulisan loading berubah jadi "Loaded!" setelah 3 detik
+    setTimeout(() => {
+      document.getElementById("loadingText").textContent = "✓ Loaded.";
+    }, 3000);
   </script>
 
 </body>
