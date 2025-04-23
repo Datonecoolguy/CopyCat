@@ -13,8 +13,8 @@
     body, html {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       height: 100%;
-      background-color: #1a1a1a;
-      color: #e0e0e0;
+      background-color: #f4f6f9;
+      color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,68 +23,60 @@
 
     .container {
       width: 100%;
-      max-width: 700px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      max-width: 600px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
       text-align: center;
-      border-radius: 12px;
-      background-color: #2a2a2a;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      padding: 40px 20px;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 20px;
+      color: #4e8cff;
     }
 
     p {
       font-size: 1.1rem;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       line-height: 1.6;
+      color: #555;
     }
 
     #buttons {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 15px;
-      margin-top: 25px;
+      margin-top: 20px;
     }
 
     #buttons button {
-      background-color: #3b3b3b;
-      border: 1px solid #444;
+      background-color: #4e8cff;
+      border: none;
       color: white;
       font-size: 1rem;
-      padding: 15px 25px;
-      border-radius: 8px;
+      padding: 12px 25px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease;
     }
 
     #buttons button:hover {
-      background-color: #4a4a4a;
-      transform: translateY(-3px);
+      background-color: #3a72c4;
     }
 
     section {
       display: none;
-      width: 100%;
-      background-color: #2a2a2a;
-      padding: 30px;
-      border-radius: 10px;
       margin-top: 30px;
     }
 
     .back-button {
-      margin-top: 30px;
-      color: #00aaff;
+      color: #007bff;
       text-decoration: none;
       font-size: 1rem;
       display: inline-block;
+      margin-top: 20px;
       transition: transform 0.3s ease;
     }
 
@@ -101,32 +93,32 @@
 
     form input, form textarea, form select {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       border-radius: 6px;
-      border: 1px solid #555;
-      background-color: #333;
-      color: white;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      color: #333;
       font-size: 1rem;
     }
 
     form button {
-      background-color: #00aaff;
+      background-color: #4e8cff;
       border: none;
       padding: 12px;
       border-radius: 6px;
       font-size: 1rem;
-      cursor: pointer;
       color: white;
+      cursor: pointer;
       margin-top: 10px;
     }
 
     form button:hover {
-      background-color: #008ecc;
+      background-color: #3a72c4;
     }
 
     #thankYouMessage {
       display: none;
-      color: #00ff90;
+      color: #28a745;
       font-size: 1.2rem;
       margin-top: 20px;
     }
