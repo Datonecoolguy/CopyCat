@@ -19,11 +19,12 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
+      transition: all 0.3s ease;
     }
 
     .container {
       width: 100%;
-      max-width: 700px;
+      max-width: 800px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -31,59 +32,112 @@
       text-align: center;
       border-radius: 12px;
       background-color: #2a2a2a;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      padding: 40px 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      padding: 40px 25px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    h1 {
-      font-size: 2.5rem;
+    .container h1 {
+      font-size: 3rem;
+      color: #00aaff;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px rgba(0, 170, 255, 0.7);
+    }
+
+    .container h2 {
+      font-size: 2rem;
       margin-bottom: 20px;
+      color: #ffb86c;
     }
 
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
+    .container p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
       line-height: 1.6;
     }
 
-    #buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 25px;
+    .description {
+      font-size: 1.1rem;
+      color: #cccccc;
+      margin-bottom: 20px;
+      font-style: italic;
     }
 
-    #buttons button {
-      background-color: #3b3b3b;
-      border: 1px solid #444;
-      color: white;
-      font-size: 1rem;
-      padding: 15px 25px;
+    .form-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
       border-radius: 8px;
+      border: 1px solid #444;
+      background-color: #333;
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #00aaff;
+      outline: none;
+    }
+
+    textarea {
+      height: 120px;
+    }
+
+    .file-input-container {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    label.file-label {
+      padding: 12px 20px;
+      background-color: #4a4a4a;
+      color: white;
+      border-radius: 8px;
+      display: inline-block;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      width: 100%;
+      text-align: center;
     }
 
-    #buttons button:hover {
-      background-color: #4a4a4a;
+    label.file-label:hover {
+      background-color: #00aaff;
       transform: translateY(-3px);
     }
 
-    section {
-      display: none;
-      width: 100%;
-      background-color: #2a2a2a;
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 30px;
+    button {
+      background-color: #00aaff;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #008ecc;
+      transform: translateY(-3px);
     }
 
     .back-button {
       margin-top: 30px;
       color: #00aaff;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 1.1rem;
       display: inline-block;
       transition: transform 0.3s ease;
     }
@@ -92,42 +146,10 @@
       transform: translateY(-2px);
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    form input, form textarea, form select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #555;
-      background-color: #333;
-      color: white;
-      font-size: 1rem;
-    }
-
-    form button {
-      background-color: #00aaff;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      color: white;
-      margin-top: 10px;
-    }
-
-    form button:hover {
-      background-color: #008ecc;
-    }
-
     #thankYouMessage {
       display: none;
       color: #00ff90;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-top: 20px;
     }
 
@@ -136,35 +158,32 @@
       font-size: 1.1rem;
       margin-top: 10px;
     }
+
+    #hashContainer {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #444;
+      background-color: #333;
+      border-radius: 10px;
+    }
+
+    #hashContainer p {
+      font-size: 1rem;
+      color: #00aaff;
+      word-wrap: break-word;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
-  <div id="landingPage" class="container">
+  <div class="container">
     <h1>CopyCat</h1>
-    <p>Lindungi Karya Anda dengan Sistem Perlindungan Digital Cerdas</p>
-    <div id="buttons">
-      <button onclick="showBackground()">Latar Belakang</button>
-      <button onclick="showGallery()">Galeri Karya</button>
-      <button onclick="showForm()">Daftarkan Karya</button>
-    </div>
-  </div>
-
-  <section id="aboutPage">
-    <h2>Latar Belakang</h2>
-    <p><strong>CopyCat</strong> adalah platform digital yang dirancang untuk melindungi karya-karya kreatif Anda. Di dunia digital saat ini, melindungi hak cipta dan karya asli sangat penting. Kami hadir untuk membantu para kreator dengan menyediakan perlindungan yang mudah diakses dan transparan.</p>
-    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
-  </section>
-
-  <section id="galleryPage">
-    <h2>Galeri Karya</h2>
-    <p>Ini adalah galeri karya dari kreator yang telah melindungi hak cipta mereka menggunakan CopyCat. [Coming soon]</p>
-    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
-  </section>
-
-  <section id="formPage">
+    <p class="description">CopyCat adalah platform untuk melindungi karya kreatif Anda melalui pendaftaran hak cipta digital. Dengan menggunakan teknologi hash, karya Anda akan mendapatkan ID unik untuk memastikan hak cipta Anda terjaga secara aman dan transparan.</p>
     <h2>Daftarkan Karya Anda</h2>
-    <form id="karyaForm" onsubmit="handleFormSubmit(event)">
+    <p>Masukkan detail karya Anda untuk mendaftarkan hak cipta dengan sistem perlindungan digital kami. Semua data akan diamankan dengan hash unik.</p>
+    
+    <div class="form-container">
       <label for="title">Judul Karya:</label>
       <input type="text" id="title" name="title" required>
 
@@ -181,60 +200,46 @@
         <option value="literature">Literature</option>
       </select>
 
-      <label for="file">Pilih File Karya:</label>
-      <input type="file" id="file" name="file" required>
+      <div class="file-input-container">
+        <label class="file-label" for="file">Pilih File Karya</label>
+        <input type="file" id="file" name="file" required>
+      </div>
 
-      <button type="submit">Kirim</button>
-    </form>
+      <button onclick="handleFormSubmit(event)">Kirim Karya</button>
+    </div>
+
     <div id="thankYouMessage">
       <p><strong>Terima kasih!</strong> Karyamu berhasil didaftarkan.</p>
     </div>
-    <div id="hashMessage"></div>
-    <a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
-  </section>
+
+    <div id="hashContainer">
+      <p id="hashMessage"></p>
+    </div>
+
+    <a href="#" class="back-button" onclick="goBack()">Kembali ke Halaman Utama</a>
+  </div>
 
   <script>
-    function showBackground() {
-      document.getElementById('aboutPage').style.display = 'block';
-      document.getElementById('landingPage').style.display = 'none';
-    }
-
-    function showGallery() {
-      document.getElementById('galleryPage').style.display = 'block';
-      document.getElementById('landingPage').style.display = 'none';
-    }
-
-    function showForm() {
-      document.getElementById('formPage').style.display = 'block';
-      document.getElementById('landingPage').style.display = 'none';
-    }
-
-    function hidePages() {
-      document.getElementById('landingPage').style.display = 'block';
-      document.getElementById('aboutPage').style.display = 'none';
-      document.getElementById('galleryPage').style.display = 'none';
-      document.getElementById('formPage').style.display = 'none';
-      document.getElementById('thankYouMessage').style.display = 'none';
-      document.getElementById('hashMessage').style.display = 'none';
-    }
-
+    // Fungsi untuk menangani pengiriman form
     function handleFormSubmit(event) {
       event.preventDefault();
-      document.getElementById('formPage').style.display = 'none';
+
+      // Tampilkan pesan terima kasih
       document.getElementById('thankYouMessage').style.display = 'block';
 
       const fileInput = document.getElementById('file');
       const file = fileInput.files[0];
       
-      // Generate a hash of the file (using FileReader and a hash function)
       const reader = new FileReader();
       reader.onload = function(e) {
         const fileContent = e.target.result;
         const hash = generateHash(fileContent);
 
-        document.getElementById('hashMessage').textContent = `Karya Anda telah berhasil didaftarkan dengan ID Unik: ${hash}`;
-        document.getElementById('hashMessage').style.display = 'block';
-        
+        // Tampilkan ID unik (hash) dari karya yang didaftarkan
+        document.getElementById('hashMessage').textContent = `Karya Anda berhasil didaftarkan dengan ID Unik: ${hash}`;
+        document.getElementById('hashContainer').style.display = 'block';
+
+        // Simpan data form ke localStorage
         localStorage.setItem('formData', JSON.stringify({
           title: document.getElementById('title').value,
           description: document.getElementById('desc').value,
@@ -244,12 +249,14 @@
         }));
 
         setTimeout(() => {
-          hidePages();
+          goBack();
         }, 5000);
       };
+
       reader.readAsArrayBuffer(file);
     }
 
+    // Fungsi untuk menghasilkan hash unik dari konten file
     function generateHash(content) {
       let hash = 0, i, chr;
       for (i = 0; i < content.length; i++) {
@@ -259,6 +266,12 @@
       }
       return hash.toString(16); // Convert hash to hexadecimal string
     }
+
+    // Fungsi untuk kembali ke halaman utama
+    function goBack() {
+      location.reload();
+    }
   </script>
+
 </body>
 </html>
