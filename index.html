@@ -1,277 +1,159 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CopyCat - Lindungi Karyamu</title>
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucrexiark Gallery</title>
   <style>
-    * {
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100%;
-      background-color: #1a1a1a;
-      color: #e0e0e0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
+      color: #333;
+    }header {
+  background-color: #111;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
 
-    .container {
-      width: 100%;
-      max-width: 800px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      border-radius: 12px;
-      background-color: #2a2a2a;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-      padding: 40px 25px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #222;
+  padding: 0.5rem;
+}
 
-    .container h1 {
-      font-size: 3rem;
-      color: #00aaff;
-      margin-bottom: 25px;
-      text-shadow: 0 0 10px rgba(0, 170, 255, 0.7);
-    }
+nav button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-    .container h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #ffb86c;
-    }
+nav button:hover {
+  background-color: #666;
+}
 
-    .container p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
+section {
+  display: none;
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+  background-color: white;
+  margin-top: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-    .description {
-      font-size: 1.1rem;
-      color: #cccccc;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
+section.active {
+  display: block;
+}
 
-    .form-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #444;
-      background-color: #333;
-      color: #e0e0e0;
-      font-size: 1.1rem;
-      transition: border-color 0.3s ease;
-    }
+input, textarea, select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
 
-    input:focus, textarea:focus, select:focus {
-      border-color: #00aaff;
-      outline: none;
-    }
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-    textarea {
-      height: 120px;
-    }
+#thankYouMessage {
+  display: none;
+  margin-top: 1rem;
+  background-color: #e6ffe6;
+  padding: 1rem;
+  border: 1px solid #8f8;
+  border-radius: 8px;
+}
 
-    .file-input-container {
-      position: relative;
-      margin-top: 10px;
-    }
+.back-button {
+  display: block;
+  margin-top: 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: #007bff;
+}
 
-    input[type="file"] {
-      display: none;
-    }
-
-    label.file-label {
-      padding: 12px 20px;
-      background-color: #4a4a4a;
-      color: white;
-      border-radius: 8px;
-      display: inline-block;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-      text-align: center;
-    }
-
-    label.file-label:hover {
-      background-color: #00aaff;
-      transform: translateY(-3px);
-    }
-
-    button {
-      background-color: #00aaff;
-      border: none;
-      padding: 15px 25px;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      color: white;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #008ecc;
-      transform: translateY(-3px);
-    }
-
-    .back-button {
-      margin-top: 30px;
-      color: #00aaff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    .back-button:hover {
-      transform: translateY(-2px);
-    }
-
-    #thankYouMessage {
-      display: none;
-      color: #00ff90;
-      font-size: 1.3rem;
-      margin-top: 20px;
-    }
-
-    #hashMessage {
-      color: #ffb86c;
-      font-size: 1.1rem;
-      margin-top: 10px;
-    }
-
-    #hashContainer {
-      margin-top: 20px;
-      padding: 15px;
-      border: 1px solid #444;
-      background-color: #333;
-      border-radius: 10px;
-    }
-
-    #hashContainer p {
-      font-size: 1rem;
-      color: #00aaff;
-      word-wrap: break-word;
-      text-align: center;
-    }
   </style>
-</head>
-<body>
-
-  <div class="container">
-    <h1>CopyCat</h1>
-    <p class="description">CopyCat adalah platform untuk melindungi karya kreatif Anda melalui pendaftaran hak cipta digital. Dengan menggunakan teknologi hash, karya Anda akan mendapatkan ID unik untuk memastikan hak cipta Anda terjaga secara aman dan transparan.</p>
+</head><body>
+  <header>
+    <h1>Lucrexiark Gallery</h1>
+    <p>Mari berkarya dan sebarkan kreativitasmu!</p>
+  </header>  <nav>
+    <button onclick="showPage('home')">Beranda</button>
+    <button onclick="showPage('about')">Pengertian</button>
+    <button onclick="showPage('formPage')">Daftarkan Karya</button>
+  </nav>  <section id="home" class="active">
+    <h2>Selamat Datang di Galeri Lucrexiark</h2>
+    <p>Tempat di mana kreativitas bertemu dengan inovasi. Eksplorasi berbagai karya dari kreator muda penuh semangat.</p>
+  </section>  <section id="about">
+    <h2>Pengertian</h2>
+    <p>Website ini adalah wadah digital untuk menampung dan memamerkan karya-karya terbaik dari para pelajar dan pemuda kreatif. Setiap individu memiliki kesempatan untuk menunjukkan bakat dan idenya kepada dunia melalui platform ini. Dengan adanya sistem pendaftaran karya, pengunjung dapat mengeksplorasi berbagai jenis karya mulai dari seni digital, musik, hingga sastra.</p>
+  </section>  <section id="formPage">
     <h2>Daftarkan Karya Anda</h2>
-    <p>Masukkan detail karya Anda untuk mendaftarkan hak cipta dengan sistem perlindungan digital kami. Semua data akan diamankan dengan hash unik.</p>
-    
-    <div class="form-container">
+    <form id="karyaForm" onsubmit="handleFormSubmit(event)">
       <label for="title">Judul Karya:</label>
-      <input type="text" id="title" name="title" required>
+      <input type="text" id="title" name="title" required><label for="desc">Deskripsi Karya:</label>
+  <textarea id="desc" name="desc" required></textarea>
 
-      <label for="desc">Deskripsi Karya:</label>
-      <textarea id="desc" name="desc" required></textarea>
+  <label for="author">Nama Kreator:</label>
+  <input type="text" id="author" name="author" required>
 
-      <label for="author">Nama Kreator:</label>
-      <input type="text" id="author" name="author" required>
+  <label for="type">Jenis Karya:</label>
+  <select id="type" name="type" required>
+    <option value="digital">Digital Art</option>
+    <option value="music">Music</option>
+    <option value="literature">Literature</option>
+  </select>
 
-      <label for="type">Jenis Karya:</label>
-      <select id="type" name="type" required>
-        <option value="digital">Digital Art</option>
-        <option value="music">Music</option>
-        <option value="literature">Literature</option>
-      </select>
+  <label for="file">Unggah Karya (Gimik):</label>
+  <input type="file" id="file" name="file" />
 
-      <div class="file-input-container">
-        <label class="file-label" for="file">Pilih File Karya</label>
-        <input type="file" id="file" name="file" required>
-      </div>
+  <button type="submit">Kirim</button>
+</form>
 
-      <button onclick="handleFormSubmit(event)">Kirim Karya</button>
-    </div>
+<div id="thankYouMessage">
+  <p><strong>Terima kasih!</strong> Karyamu berhasil didaftarkan.</p>
+  <p>Hash Karya: <code id="hashOutput"></code></p>
+</div>
 
-    <div id="thankYouMessage">
-      <p><strong>Terima kasih!</strong> Karyamu berhasil didaftarkan.</p>
-    </div>
+<a href="#" class="back-button" onclick="hidePages()">Kembali ke Halaman Utama</a>
 
-    <div id="hashContainer">
-      <p id="hashMessage"></p>
-    </div>
-
-    <a href="#" class="back-button" onclick="goBack()">Kembali ke Halaman Utama</a>
-  </div>
-
-  <script>
-    // Fungsi untuk menangani pengiriman form
-    function handleFormSubmit(event) {
-      event.preventDefault();
-
-      // Tampilkan pesan terima kasih
-      document.getElementById('thankYouMessage').style.display = 'block';
-
-      const fileInput = document.getElementById('file');
-      const file = fileInput.files[0];
-      
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const fileContent = e.target.result;
-        const hash = generateHash(fileContent);
-
-        // Tampilkan ID unik (hash) dari karya yang didaftarkan
-        document.getElementById('hashMessage').textContent = `Karya Anda berhasil didaftarkan dengan ID Unik: ${hash}`;
-        document.getElementById('hashContainer').style.display = 'block';
-
-        // Simpan data form ke localStorage
-        localStorage.setItem('formData', JSON.stringify({
-          title: document.getElementById('title').value,
-          description: document.getElementById('desc').value,
-          author: document.getElementById('author').value,
-          type: document.getElementById('type').value,
-          fileHash: hash
-        }));
-
-        setTimeout(() => {
-          goBack();
-        }, 5000);
-      };
-
-      reader.readAsArrayBuffer(file);
+  </section>  <script>
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
 
-    // Fungsi untuk menghasilkan hash unik dari konten file
-    function generateHash(content) {
-      let hash = 0, i, chr;
-      for (i = 0; i < content.length; i++) {
-        chr = content.charCodeAt(i);
-        hash = (hash << 5) - hash + chr;
-        hash |= 0; // Convert to 32-bit integer
-      }
-      return hash.toString(16); // Convert hash to hexadecimal string
+    function hidePages() {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById('home').classList.add('active');
     }
 
-    // Fungsi untuk kembali ke halaman utama
-    function goBack() {
-      location.reload();
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const data = `${Date.now()}-${document.getElementById("title").value}`;
+      const hash = btoa(data).substring(0, 12);
+      document.getElementById("hashOutput").innerText = hash;
+      document.getElementById("thankYouMessage").style.display = 'block';
     }
-  </script>
-
-</body>
-</html>
+  </script></body></html>
